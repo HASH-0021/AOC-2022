@@ -1,14 +1,13 @@
 def part_1():
-	cycles = [20+x*40 for x in range(6)]
 	cycle = register = 1
 	signal_strengths = []
 	for task in instructions:
-		if cycle in cycles:
+		if cycle%40 == 20:
 			signal_strengths.append(cycle*register)
 		if task[0] == "noop":
 			cycle += 1
 		elif task[0] == "addx":
-			if cycle+1 in cycles:
+			if (cycle+1)%40 == 20:
 				signal_strengths.append((cycle+1)*register)
 			cycle += 2
 			register += int(task[1])
