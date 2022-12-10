@@ -4,12 +4,11 @@ def part_1():
 	for task in instructions:
 		if cycle%40 == 20:
 			signal_strengths.append(cycle*register)
-		if task[0] == "noop":
+		cycle += 1
+		if task[0] == "addx":
+			if cycle%40 == 20:
+				signal_strengths.append(cycle*register)
 			cycle += 1
-		elif task[0] == "addx":
-			if (cycle+1)%40 == 20:
-				signal_strengths.append((cycle+1)*register)
-			cycle += 2
 			register += int(task[1])
 	return sum(signal_strengths)
 
