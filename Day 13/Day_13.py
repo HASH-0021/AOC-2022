@@ -67,7 +67,7 @@ def part_2():
 					idx = j
 					break
 			organized_packets.insert(idx,p1)
-			if p1 in divider_packets:
+			if i >= len(packets):
 				decoder_key *= idx+1
 	return decoder_key
 
