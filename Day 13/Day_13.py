@@ -1,10 +1,10 @@
-def create_list(packet,idx):
+def create_packet(packet,idx):
 	my_packet = []
 	i = idx+1
 	number = ""
 	while i < len(packet):
 		if packet[i] == '[':
-			data,i = create_list(packet,i)
+			data,i = create_packet(packet,i)
 			my_packet.append(data)
 		elif packet[i] == ']':
 			if number:
@@ -82,8 +82,8 @@ for i in range(len(my_list)):
 	elif i % 3 == 1:
 		packets[-1].append(line)
 for pair in packets:
-	pair[0] = create_list(pair[0],0)[0]
-	pair[1] = create_list(pair[1],0)[0]
+	pair[0] = create_packet(pair[0],0)[0]
+	pair[1] = create_packet(pair[1],0)[0]
 
 print(f"Sum of indices of right ordered pairs in distress signal is {part_1()}.")
 print(f"Decoder key for the distress signal is {part_2()}.")
