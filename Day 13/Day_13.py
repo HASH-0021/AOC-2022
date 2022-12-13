@@ -78,12 +78,9 @@ packets = []
 for i in range(len(my_list)):
 	line = my_list[i].strip()
 	if i % 3 == 0:
-		packets.append([line])
+		packets.append([create_packet(line,0)[0]])
 	elif i % 3 == 1:
-		packets[-1].append(line)
-for pair in packets:
-	pair[0] = create_packet(pair[0],0)[0]
-	pair[1] = create_packet(pair[1],0)[0]
-
+		packets[-1].append(create_packet(line,0)[0])
+		
 print(f"Sum of indices of right ordered pairs in distress signal is {part_1()}.")
 print(f"Decoder key for the distress signal is {part_2()}.")
